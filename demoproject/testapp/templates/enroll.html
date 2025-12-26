@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <h2 class="fw-bold text-center mb-4">Enroll Now</h2>
+            <p class="text-center text-muted mb-4">
+                Fill out the form below to register for the course. Our team will contact you soon!
+            </p>
+
+            <div class="card shadow p-4">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Full Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Phone Number</label>
+                        <input type="text" name="phone" class="form-control" placeholder="1234567890" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Select Course</label>
+                        <select name="course" class="form-select" required>
+                            <option selected disabled>-- Choose a Course --</option>
+                            <option>Python Programming</option>
+                            <option>Web Development (HTML, CSS, JS)</option>
+                            <option>Django Full Stack Development</option>
+                            <option>Data Science Basics</option>
+                            <option>AI & Machine Learning Intro</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-danger btn-lg">Submit Registration</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="/" class="btn btn-outline-primary btn-sm">Back to Courses</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
